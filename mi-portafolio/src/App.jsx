@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { SiDicebear } from "react-icons/si";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -16,6 +15,7 @@ import {
   FaDownload,
   FaExternalLinkAlt,
   FaDatabase,
+  FaLinkedin,
 } from "react-icons/fa";
 
 import {
@@ -34,15 +34,13 @@ function App() {
 
   const whatsappNumber = "5492612112232";
 
-  const emailUser = "oyolaadriano13";
-  const emailDomain = "gmail.com";
-  const emailAddress = `${emailUser}@${emailDomain}`;
-
   const whatsappMessage = encodeURIComponent(
     "Hola Adriano, vi tu portfolio y me gustaría ponerme en contacto contigo."
   );
 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+  const linkedinUrl = "https://www.linkedin.com/in/adriano-oyola-b5794926a/";
 
   useEffect(() => {
     document.body.classList.toggle("dark", darkMode);
@@ -177,7 +175,7 @@ function App() {
             onClick={() => scrollToSection("inicio")}
             aria-label="Ir al inicio"
           >
-            <SiDicebear />
+            AO
           </button>
 
           <nav className={`nav-menu ${menuOpen ? "active" : ""}`}>
@@ -191,10 +189,6 @@ function App() {
 
             <button onClick={() => scrollToSection("tecnologias")}>
               Tecnologías
-            </button>
-
-            <button onClick={() => scrollToSection("estudios")}>
-              Estudios
             </button>
 
             <button onClick={() => scrollToSection("proyectos")}>
@@ -242,7 +236,7 @@ function App() {
 
             <div className="hero-content">
               <span className="hero-small-title">
-                Técnico en Desarrollo de Software
+                Hola, soy
               </span>
 
               <h1>
@@ -281,12 +275,13 @@ function App() {
                 </a>
 
                 <a
-                  href="/cv-oyola.pdf"
-                  download="CV-Adriano-Oyola.pdf"
+                  href={linkedinUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   className="btn btn-secondary"
                 >
-                  <FaDownload />
-                  Descargar CV
+                  <FaLinkedin />
+                  Ver LinkedIn
                 </a>
               </div>
             </div>
@@ -301,7 +296,7 @@ function App() {
               <h2>Sobre mí</h2>
             </div>
 
-            <div className="about-grid about-grid-single">
+            <div className="about-grid">
               <div className="about-card">
                 <h3>Perfil profesional</h3>
 
@@ -318,6 +313,52 @@ function App() {
                   dejar de ampliar mis conocimientos de Backend y bases
                   de datos.
                 </p>
+              </div>
+
+              <div className="about-card">
+                <h3>Actualmente</h3>
+
+                <div className="timeline-item">
+                  <span className="timeline-dot"></span>
+
+                  <div>
+                    <strong>
+                      Tecnicatura Superior en Desarrollo de Software
+                    </strong>
+
+                    <p>
+                      IES 9-023 · 2025 - En curso
+                    </p>
+                  </div>
+                </div>
+
+                <div className="timeline-item">
+                  <span className="timeline-dot"></span>
+
+                  <div>
+                    <strong>
+                      Curso Experto en Ciberseguridad
+                    </strong>
+
+                    <p>
+                      FESAT · 2026 - En curso
+                    </p>
+                  </div>
+                </div>
+
+                <div className="timeline-item">
+                  <span className="timeline-dot"></span>
+
+                  <div>
+                    <strong>
+                      Bootcamp Full Stack Engineer
+                    </strong>
+
+                    <p>
+                      EducaciónIT & Manhattan University · 2023
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -406,43 +447,6 @@ function App() {
           </div>
         </section>
 
-
-        {/* ESTUDIOS */}
-        <section id="estudios" className="section studies-section">
-          <div className="container">
-            <div className="section-header">
-              <span>Mi formación</span>
-              <h2>Estudios</h2>
-            </div>
-
-            <div className="studies-grid">
-              <div className="study-card">
-                <span className="timeline-dot"></span>
-                <div>
-                  <strong>Tecnicatura Superior en Desarrollo de Software</strong>
-                  <p>IES 9-023 · 2025 - En curso</p>
-                </div>
-              </div>
-
-              <div className="study-card">
-                <span className="timeline-dot"></span>
-                <div>
-                  <strong>Curso Experto en Ciberseguridad</strong>
-                  <p>FESAT · 2026 - En curso</p>
-                </div>
-              </div>
-
-              <div className="study-card">
-                <span className="timeline-dot"></span>
-                <div>
-                  <strong>Bootcamp Full Stack Engineer</strong>
-                  <p>EducaciónIT & Manhattan University · 2023</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* CONTACTO */}
         <section id="contacto" className="section contact-section">
           <div className="container">
@@ -462,7 +466,8 @@ function App() {
 
                 <p>
                   Podés comunicarte conmigo directamente por WhatsApp,
-                  correo electrónico o visitar mi perfil de GitHub.
+                  correo electrónico o visitar mi perfil de GitHub o
+                  LinkedIn.
                 </p>
               </div>
 
@@ -484,7 +489,7 @@ function App() {
                 </a>
 
                 <a
-                  href={`mailto:${emailAddress}`}
+                  href="mailto:oyolaadriano13@gmail.com"
                   className="contact-item"
                 >
                   <div className="contact-icon">
@@ -493,10 +498,9 @@ function App() {
 
                   <div>
                     <span>Email</span>
-                    <strong>Mandame un mail</strong>
+                    <strong>Escribirme un correo</strong>
                   </div>
                 </a>
-
 
                 <a
                   href="https://github.com/Oyola3"
@@ -510,7 +514,23 @@ function App() {
 
                   <div>
                     <span>GitHub</span>
-                    <strong>Mi GitHub</strong>
+                    <strong>Ver mi perfil</strong>
+                  </div>
+                </a>
+
+                <a
+                  href={linkedinUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="contact-item"
+                >
+                  <div className="contact-icon">
+                    <FaLinkedin />
+                  </div>
+
+                  <div>
+                    <span>LinkedIn</span>
+                    <strong>Ver mi perfil</strong>
                   </div>
                 </a>
               </div>
@@ -558,6 +578,15 @@ function App() {
             </a>
 
             <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin />
+            </a>
+
+            <a
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
@@ -567,7 +596,7 @@ function App() {
             </a>
 
             <a
-              href={`mailto:${emailAddress}`}
+              href="mailto:oyolaadriano13@gmail.com"
               aria-label="Email"
             >
               <FaEnvelope />
