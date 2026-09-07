@@ -246,8 +246,7 @@ function App() {
               <h2>Desarrollador Front End</h2>
 
               <p>
-                Técnico en Desarrollo de Software y estudiante de la
-                Tecnicatura Superior en Desarrollo de Software. Me
+                Técnico en Desarrollo de Software. Me
                 interesa especialmente el desarrollo Front End, la
                 creación de interfaces y la construcción de aplicaciones
                 web.
@@ -301,10 +300,9 @@ function App() {
                 <h3>Perfil profesional</h3>
 
                 <p>
-                  Me adapto fácilmente a nuevos desafíos y disfruto
+                  Me adapto a nuevos desafíos y disfruto
                   trabajar en equipo. Me interesa seguir creciendo en el
-                  área del desarrollo de software y transformar los
-                  conocimientos adquiridos en proyectos reales.
+                  área del desarrollo de software.
                 </p>
 
                 <p>
