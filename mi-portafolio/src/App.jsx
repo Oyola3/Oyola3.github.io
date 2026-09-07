@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
 import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaPython,
-  FaReact,
-  FaNodeJs,
-  FaGitAlt,
   FaGithub,
   FaWhatsapp,
   FaEnvelope,
@@ -14,19 +7,36 @@ import {
   FaSun,
   FaDownload,
   FaExternalLinkAlt,
-  FaDatabase,
   FaLinkedin,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaPython,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+  FaDatabase,
 } from "react-icons/fa";
 
-import {
-  SiVite,
-  SiBootstrap,
-  SiExpress,
-  SiMysql,
-  SiFlask,
-} from "react-icons/si";
+import { SiVite, SiBootstrap, SiExpress, SiReactrouter } from "react-icons/si";
 
 import "./App.css";
+
+const techIcons = {
+  HTML: FaHtml5,
+  CSS: FaCss3Alt,
+  JavaScript: FaJs,
+  Python: FaPython,
+  React: FaReact,
+  Vite: SiVite,
+  Bootstrap: SiBootstrap,
+  "Node.js": FaNodeJs,
+  Express: SiExpress,
+  "React Router": SiReactrouter,
+  Git: FaGitAlt,
+  GitHub: FaGithub,
+  SQL: FaDatabase,
+};
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -45,79 +55,6 @@ function App() {
   useEffect(() => {
     document.body.classList.toggle("dark", darkMode);
   }, [darkMode]);
-
-  const technologies = [
-    {
-      name: "HTML5",
-      icon: <FaHtml5 />,
-      className: "html",
-    },
-    {
-      name: "CSS3",
-      icon: <FaCss3Alt />,
-      className: "css",
-    },
-    {
-      name: "JavaScript",
-      icon: <FaJs />,
-      className: "javascript",
-    },
-    {
-      name: "React",
-      icon: <FaReact />,
-      className: "react",
-    },
-    {
-      name: "Vite",
-      icon: <SiVite />,
-      className: "vite",
-    },
-    {
-      name: "Bootstrap",
-      icon: <SiBootstrap />,
-      className: "bootstrap",
-    },
-    {
-      name: "Python",
-      icon: <FaPython />,
-      className: "python",
-    },
-    {
-      name: "Flask",
-      icon: <SiFlask />,
-      className: "flask",
-    },
-    {
-      name: "Node.js",
-      icon: <FaNodeJs />,
-      className: "node",
-    },
-    {
-      name: "Express",
-      icon: <SiExpress />,
-      className: "express",
-    },
-    {
-      name: "MySQL",
-      icon: <SiMysql />,
-      className: "mysql",
-    },
-    {
-      name: "SQL",
-      icon: <FaDatabase />,
-      className: "sql",
-    },
-    {
-      name: "Git",
-      icon: <FaGitAlt />,
-      className: "git",
-    },
-    {
-      name: "GitHub",
-      icon: <FaGithub />,
-      className: "github",
-    },
-  ];
 
   const projects = [
     {
@@ -185,10 +122,6 @@ function App() {
 
             <button onClick={() => scrollToSection("sobre-mi")}>
               Sobre mí
-            </button>
-
-            <button onClick={() => scrollToSection("tecnologias")}>
-              Tecnologías
             </button>
 
             <button onClick={() => scrollToSection("proyectos")}>
@@ -362,31 +295,6 @@ function App() {
           </div>
         </section>
 
-        {/* TECNOLOGIAS */}
-        <section id="tecnologias" className="section technologies-section">
-          <div className="container">
-            <div className="section-header">
-              <span>Mis herramientas</span>
-              <h2>Tecnologías</h2>
-            </div>
-
-            <div className="technologies-grid">
-              {technologies.map((technology) => (
-                <div
-                  className={`technology-card ${technology.className}`}
-                  key={technology.name}
-                >
-                  <div className="technology-icon">
-                    {technology.icon}
-                  </div>
-
-                  <span>{technology.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* PROYECTOS */}
         <section id="proyectos" className="section projects-section">
           <div className="container">
@@ -422,11 +330,16 @@ function App() {
                     <p>{project.description}</p>
 
                     <div className="project-technologies">
-                      {project.technologies.map((technology) => (
-                        <span key={technology}>
-                          {technology}
-                        </span>
-                      ))}
+                      {project.technologies.map((technology) => {
+                        const Icon = techIcons[technology];
+
+                        return (
+                          <span key={technology}>
+                            {Icon && <Icon />}
+                            {technology}
+                          </span>
+                        );
+                      })}
                     </div>
 
                     <a
